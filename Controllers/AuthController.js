@@ -40,6 +40,7 @@ const login = async (req,res) => {
         res.status(200).json({message:"Login successfully",jwtToken,username:user.username,success:true})
 
     }catch(e){
+        console.log(e)
         res.status(500).json({message:"Internal Server Errror",success:false})
     }
 }
