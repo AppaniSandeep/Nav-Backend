@@ -16,6 +16,7 @@ const signup = async (req,res) => {
         res.status(201).json({message:"Signup successfull",success:true})
 
     }catch(e){
+        console.log(e)
         res.status(500).json({message:"Internal Server Errror",success:false})
     }
 }
