@@ -45,8 +45,21 @@ const login = async (req,res) => {
     }
 }
 
+const home = async (req, res) => {
+    try {
+        const userData = await UserModel.find()
+        if (userData.length === 0) {
+            return res.status(404).json({message:"No Users Found", success:false})
+        }
+        res.status(200).json({message:"Users Retrieved Successful", data:userData, success:true})
+    }catch (e) {
+        res.status(500).json({message: "Internal Server Error", success:false})
+    }
+}
+
 
 module.exports = {
     signup,
-    login
+    login,
+    home
 }
