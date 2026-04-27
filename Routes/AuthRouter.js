@@ -10,6 +10,6 @@ router.post("/signup",signupValidation, signup);
 
 router.get("/home",verifyToken, home);
 
-router.delete("/delete/:id", deleteUser);
+router.delete("/delete/:id",verifyToken, deleteUser);
 
 module.exports = router
