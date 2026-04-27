@@ -5,9 +5,9 @@ const verifyToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
 
-  // if(!token){
-  //   return res.status(403).json({message:"No token provided authorization denied", success:false})
-  // }
+  if(!token){
+    return res.status(403).json({message:"No token provided authorization denied", success:false})
+  }
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
