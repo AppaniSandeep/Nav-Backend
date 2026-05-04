@@ -9,6 +9,7 @@ require("./Models/db");
 
 app.use(bodyParser.json());
 app.use(cors());
+
 app.use("/auth",AuthRouter)
 
 const PORT = process.env.PORT || 8080;

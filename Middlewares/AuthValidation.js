@@ -25,6 +25,8 @@ const loginValidation = (req,res,next) =>{
     next();
 }
 
+
+
 module.exports = {
     signupValidation,
     loginValidation
