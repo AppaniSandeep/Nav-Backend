@@ -23,10 +23,7 @@ const signup = async (req,res) => {
         await userModel.save();
         res.status(201).json({message:"Signup successfull",success:true})
     }catch(e){
-<<<<<<< HEAD
-=======
         console.log(e)
->>>>>>> 3026a650a96cb2363b3fea0273315efad23d1d31
         res.status(500).json({message:"Internal Server Error",success:false})
     }
 }
@@ -57,7 +54,6 @@ const login = async (req,res) => {
 
 const home = async (req, res) => {
     try {
-<<<<<<< HEAD
         const userData = await UserModel.find();
         if (userData.length === 0) {
             return res.status(404).json({message: "No users found", success:false})
@@ -65,20 +61,15 @@ const home = async (req, res) => {
         res.status(200).json({message: "Users retrieved successfully", data: userData, success:true})
 
     }catch(e){
-=======
         const userData = await UserModel.find()
         if (userData.length === 0) {
             return res.status(404).json({message:"No Users Found", success:false})
         }
         res.status(200).json({message:"Users Retrieved Successful", data:userData, success:true})
-    }catch (e) {
->>>>>>> 3026a650a96cb2363b3fea0273315efad23d1d31
-        res.status(500).json({message: "Internal Server Error", success:false})
     }
 }
 
 const deleteUser = async (req, res) => {
-<<<<<<< HEAD
     try {
         const {id} = req.params;
         const user = await UserModel.findByIdAndDelete(id);
@@ -153,15 +144,6 @@ const resetPassword = async (req, res) => {
         user.resetTokenExpiry = null;
         await user.save();
         res.status(200).json({message:"The Password Reset Successfully", success:true});
-=======
-    try{
-        const {id} = req.params;
-        const user = await UserModel.findByIdAndDelete(id);
-        if (!user){
-            return res.status(404).json({message:"User not found", success:false})
-        }
-        res.status(200).json({message:"User deleted successfully", success:true})
->>>>>>> 3026a650a96cb2363b3fea0273315efad23d1d31
     }catch(e){
         res.status(500).json({message:"Internal Server Error", success:false})
     }
@@ -171,13 +153,8 @@ module.exports = {
     signup,
     login,
     home,
-<<<<<<< HEAD
     deleteUser,
     forgetPassword,
     getResetPasswordPage,
     resetPassword
 }
-=======
-    deleteUser
-}
->>>>>>> 3026a650a96cb2363b3fea0273315efad23d1d31
